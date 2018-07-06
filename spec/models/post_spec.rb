@@ -45,4 +45,44 @@ RSpec.describe Post, type: :model do
       end
     end
   end
+
+  context "validations" do
+
+    let!(:error_list) { Post.create.errors.full_messages }
+
+    describe "presence" do
+      it "must return User must Exist" do
+        error = Post.create title: "t", body: "b", status: "draft"
+        expect(error_list).to include error.errors.full_messages[0]
+      end
+
+      it "must return Title can't be blank" do
+        error = Post.create body: "b", status: "draft", user_id: 1
+        expect(error_list).to include error.errors.full_messages[0]
+      end
+
+      it "must return Body can't be blank" do
+        error = Post.create title: "b", status: "draft", user_id: 1
+        expect(error_list).to include error.errors.full_messages[0]
+      end
+
+      it "must return Status can't be blank" do
+        error = Post.create title: "t", body: "b", user_id: 1
+        expect(error_list).to include error.errors.full_messages[0]
+      end
+
+      it "must return Status is not included in the list" do
+        error = Post.create title: "t", body: "b", status: "walawala", user_id: 1
+        expect(error_list).to include error.errors.full_messages[0]
+      end
+    end
+
+    describe "uniqueness" do
+
+    end
+
+    describe "inclusions" do
+
+    end
+  end
 end
