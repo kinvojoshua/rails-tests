@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   scope :published, -> { where(status: "published")}
   scope :draft, -> {where(status: "draft")}
-  
+
   def add_title_to_body
     self.body = "#{title} - #{body}"
   end

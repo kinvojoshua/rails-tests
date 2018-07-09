@@ -1,0 +1,19 @@
+<h1> Post Controller </h1>
+<%= link_to 'New Post', new_post_path %>
+<table>
+    <tr>
+      <th> Title </th>
+      <th> Actions </th>
+    </tr>
+    <td>
+  <% @posts.each do |post| %>
+    <tr>
+      <td> <h3> <%= post.title %> </h3> </td>
+      <td> 
+        <%= link_to 'View', post_path(post.id)%>  
+        <%= link_to 'Edit'%>  
+        <%= link_to 'Delete'%>  
+      </td>
+    </tr> 
+  <% end %>
+</table>

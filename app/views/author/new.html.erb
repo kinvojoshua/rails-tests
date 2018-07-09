@@ -1,0 +1,18 @@
+<h1> Add new author </h1>
+
+<%= form_with scope: :author, url: author_path, local: true do |form| %>
+  <p>
+    <%= form.label :text %> <br>
+    <%= form.text_field :text %>
+  </p>
+
+  <p>
+    <%= form.label :text %> <br>
+    <%= form.text_field :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
