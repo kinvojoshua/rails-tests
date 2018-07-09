@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   STATUSES = ["draft", "published"]
 
-  belongs_to :user
+  #belongs_to :user
 
   validates :title, presence: true, uniqueness: true
   validates :body, presence: true
