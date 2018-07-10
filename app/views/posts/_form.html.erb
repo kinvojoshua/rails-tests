@@ -1,0 +1,12 @@
+<%= form_with model: @post, local: true do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br><br>
+
+  <%= f.label :body %>
+  <%= f.text_field :body %><br> <br>
+
+  <%= f.label :status %>
+  <%= f.select :status, [["draft","draft"],["published","published"]] %> <br>  <br>
+
+  <%= f.submit %>
+<% end %>

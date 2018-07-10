@@ -9,11 +9,11 @@
   <% @posts.each do |post| %>
     <tr>
       <td> <h3> <%= post.title %> </h3> </td>
-      <td> 
-        <%= link_to 'View', post_path(post.id)%>  
-        <%= link_to 'Edit'%>  
-        <%= link_to 'Delete'%>  
+      <td>
+        <%= link_to 'View', post_path(post.id)%>
+        <%= link_to 'Edit', edit_post_path(post.id)%>  
+        <%= link_to 'Delete',post_path(post.id), method: "delete", "data-confirm": "are you sure modafoka?"%>
       </td>
-    </tr> 
+    </tr>
   <% end %>
 </table>

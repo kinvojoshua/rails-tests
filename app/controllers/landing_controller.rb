@@ -1,8 +1,7 @@
 class LandingController < ApplicationController
 
   def index
-    @name = "John Doe"
-    @guests = ["a", "b" ,"c"]
+    @users = User.all
   end
 
 end
